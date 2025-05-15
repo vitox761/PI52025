@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    {% include 'partials/head.html' %}
+    <link rel="icon" href="{% static 'images/dengue.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage_style.css' %}">
+    <title>Clima e Dengue</title>
+</head>
+
+<body>
+
+    {% include 'partials/header.html' %}
+
+    <main class="conteudo">
+        <section class="conteudo-principal">
+            <div class="conteudo-principal-escrito">
+                <h1 class="conteudo-principal-escrito-titulo">Conclusão</h1>
+            </div>
+        </section>
+
+        <section class="conteudo-secundario">
+            <div class="acordeao-item">
+                <button class="acordeao-titulo"><strong>Resumo de correlações por cidade</strong></button>
+                <div class="acordeao-conteudo">
+                    <table border="1" cellpadding="15">
+                        <tr>
+                            <th>Cidade</th>
+                            <th>Fatores</th>
+                        </tr>
+                        <tr>
+                            <td>São Paulo</td>
+                            <td>Umidade positiva, vento negativo</td>
+                        </tr>
+                        <tr>
+                            <td>Piracicaba</td>
+                            <td>Umidade positiva, vento negativo</td>
+                        </tr>
+                        <tr>
+                            <td>Taubaté</td>
+                            <td>Umidade positiva, vento negativo</td>
+                        </tr>    
+                        <tr>
+                            <td>São Carlos</td>
+                            <td>Vento negativo</td>
+                        </tr>    
+                        <tr>
+                            <td>Campos do Jordão</td>
+                            <td>Tendências fracas, vento e chuva negativa</td>
+                        </tr>
+                        <tr>
+                            <td>José Bonifácio</td>
+                            <td>Temperatura positiva, umidade negativa</td>
+                        </tr>
+                        <tr>
+
+                            <td>Cachoeira Paulista</td>
+                            <td>Vento negativo, umidade positiva</td>
+                        </tr>    
+                    </table>
+                </div>
+            </div>
+
+            <div class="acordeao-item">
+                <button class="acordeao-titulo"><strong>Considerações Finais</strong></button>
+                <div class="acordeao-conteudo">
+                    <p>
+                        As variáveis climáticas mais frequentemente correlacionadas com casos de dengue foram:
+                    </p>
+                    <p>
+                        Temperatura: positivamente em cidades mais quentes (ex: José Bonifácio).
+                    </p>
+                    <p>
+                        Umidade: positiva em áreas tropicais (Taubaté, Cachoeira), negativa em regiões frias (José Bonifácio).
+                    </p>
+                    <p>
+                        Vento médio: geralmente tem correlação negativa significativa, indicando que maior ventilação desfavorece a proliferação do mosquito.
+                    </p>
+                </div>
+            </div>
+
+            <button class="conteudo-principal-escrito-botao">
+                    <a href="{% url 'home_page' %}" class="conteudo-principal-escrito-botao-link">
+                        Página Inicial
+                    </a>
+            </button>
+            </section>
+
+    </main>
+
+    <script>
+        document.querySelectorAll('.acordeao-titulo').forEach(titulo => {
+            titulo.addEventListener('click', () => {
+                titulo.classList.toggle('aberto');
+                const conteudo = titulo.nextElementSibling;
+                conteudo.classList.toggle('aberto');
+            });
+        });
+    </script>
+
+    {% include 'partials/footer.html' %}
+</body>
+
+</html>

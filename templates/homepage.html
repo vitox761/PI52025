@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    {% include 'partials/head.html' %}
+    <link rel="icon" href="{% static 'images/dengue.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage_style.css' %}">
+    <title>Clima e Dengue</title>
+</head>
+
+<body>
+
+    {% include 'partials/header.html' %}
+
+    <main class="conteudo">
+        <section class="conteudo-principal">
+            <div class="conteudo-principal-escrito">
+                <h1 class="conteudo-principal-escrito-titulo">Análise da relação entre o clima e os casos de dengue no estado de São Paulo</h1>
+            </div>
+            <img class="conteudo-principal-imagem" src="{% static 'images/bandeira.svg' %}">
+        </section>
+
+        <section class="conteudo-secundario">
+            <h3 class="conteudo-secundario-titulo">Saiba mais</h3>
+
+            <div class="acordeao-item">
+                <button class="acordeao-titulo"><strong>Objetivo</strong></button>
+                <div class="acordeao-conteudo">
+                    <p>Explorar e levantar dados meteorológicos do INMET e epidemiológicos da Secretaria de Saúde de São Paulo relevantes para a análise da incidência de dengue.</p>
+                </div>
+            </div>
+
+            <div class="acordeao-item">
+                <button class="acordeao-titulo"><strong>Ferramentas Utilizadas</strong></button>
+                <div class="acordeao-conteudo">
+                    <p>O software usado para analise de dados foi o R (https://cran.r-project.org/bin/windows/base/) e 
+                        para o desenvolvimento do frontend foi usado Python e Django.
+                    </p>
+                </div>
+            </div>
+
+            <div class="acordeao-item">
+                <button class="acordeao-titulo"><strong>Dados usados</strong></button>
+                <div class="acordeao-conteudo">
+                    <p>Dados climaticos foram coletados do INMET (https://portal.inmet.gov.br/dadoshistoricos) e os casos de dengue do governo de SP (https://www.saude.sp.gov.br/cve-centro-de-vigilancia-epidemiologica-prof.-alexandre-vranjac/areas-de-vigilancia/doencas-de-transmissao-por-vetores-e-zoonoses/arboviroses-urbanas/dengue-dados-estatisticos) </p>
+                </div>
+            </div>
+
+            <div class="acordeao-item">
+                <button class="acordeao-titulo"><strong>Metodologia</strong></button>
+                <div class="acordeao-conteudo">
+                    <p>
+                        O período usado para a análise foi o ano de 2024, e foram selecionadas sete cidades com índices variados de casos de dengue: São Paulo, Piracicaba, Taubaté, São Carlos, Campos do Jordão, José Bonifácio e Cachoeira Paulista. Para medir a correlação das variáveis climáticas com os casos confirmados de dengue nas cidades, os dados climáticos mensais foram comparados com os casos de dengue do mesmo período, por meio da correlação de Pearson, disponível no R. A correlação de Pearson é uma técnica estatística utilizada para medir se duas variáveis estão linearmente relacionadas. 
+                    </p>
+                </div>
+            </div>
+            <button class="conteudo-principal-escrito-botao">
+                    <a href="{% url 'resultado_saopaulo' %}" class="conteudo-principal-escrito-botao-link">
+                        Visualizar Resultados
+                    </a>
+                </button>
+            </section>
+
+    </main>
+
+    <script>
+        document.querySelectorAll('.acordeao-titulo').forEach(titulo => {
+            titulo.addEventListener('click', () => {
+                titulo.classList.toggle('aberto');
+                const conteudo = titulo.nextElementSibling;
+                conteudo.classList.toggle('aberto');
+            });
+        });
+    </script>
+
+    {% include 'partials/footer.html' %}
+</body>
+
+</html>

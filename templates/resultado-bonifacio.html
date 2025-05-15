@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    {% include 'partials/head.html' %}
+    <link rel="icon" href="{% static 'images/dengue.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage_style.css' %}">
+    <title>Clima e Dengue</title>
+</head>
+
+<body>
+
+    {% include 'partials/header.html' %}
+
+    <main class="conteudo">
+        <section class="conteudo-principal">
+            <div class="conteudo-principal-escrito">
+                <h1 class="conteudo-principal-escrito-titulo">José Bonifácio</h1>
+            </div>
+        </section>
+
+        <section class="conteudo-secundario">
+            <h3 class="conteudo-secundario-titulo">Dados Usados</h3>
+            <img class="" src="{% static 'images/JOSEBONIFACIODATA.png' %}">
+
+            <h3 class="conteudo-secundario-titulo">Matriz de correlação</h3>
+            <img class="" src="{% static 'images/JOSEBONIFACIO.png' %}">
+            
+            <h3 class="conteudo-secundario-titulo">Conclusão</h3>
+            <p>
+                Aqui, a dengue está altamente associada à temperatura elevada e baixa umidade. Entretanto, a base de dados climática da cidade está incompleta, não sendo possível realizar uma análise mais profunda. 
+            </p>
+
+            <button class="conteudo-principal-escrito-botao">
+                    <a href="{% url 'resultado_cachoeira' %}" class="conteudo-principal-escrito-botao-link">
+                        Próxima cidade
+                    </a>
+                </button>
+        </section>
+
+    </main>
+
+    {% include 'partials/footer.html' %}
+</body>
+
+</html>

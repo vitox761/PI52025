@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    {% include 'partials/head.html' %}
+    <link rel="icon" href="{% static 'images/dengue.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage_style.css' %}">
+    <title>Clima e Dengue</title>
+</head>
+
+<body>
+
+    {% include 'partials/header.html' %}
+
+    <main class="conteudo">
+        <section class="conteudo-principal">
+            <div class="conteudo-principal-escrito">
+                <h1 class="conteudo-principal-escrito-titulo">Cachoeira Paulista</h1>
+            </div>
+        </section>
+
+        <section class="conteudo-secundario">
+            <h3 class="conteudo-secundario-titulo">Dados Usados</h3>
+            <img class="" src="{% static 'images/CACHOEIRAPAULISTADATA.png' %}">
+
+            <h3 class="conteudo-secundario-titulo">Matriz de correlação</h3>
+            <img class="" src="{% static 'images/CACHOEIRAPAULISTA.png' %}">
+            
+            <h3 class="conteudo-secundario-titulo">Conclusão</h3>
+            <p>
+                Umidade e temperatura têm leve impacto positivo, e o vento médio tem forte influência negativa nos casos de dengue, fenômeno também observado em outras cidades.    
+            </p>
+
+            <button class="conteudo-principal-escrito-botao">
+                    <a href="{% url 'conclusao' %}" class="conteudo-principal-escrito-botao-link">
+                        Conclusão
+                    </a>
+                </button>
+        </section>
+
+    </main>
+
+    {% include 'partials/footer.html' %}
+</body>
+
+</html>

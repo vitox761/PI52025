@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    {% include 'partials/head.html' %}
+    <link rel="icon" href="{% static 'images/dengue.png' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homepage_style.css' %}">
+    <title>Clima e Dengue</title>
+</head>
+
+<body>
+
+    {% include 'partials/header.html' %}
+
+    <main class="conteudo">
+        <section class="conteudo-principal">
+            <div class="conteudo-principal-escrito">
+                <h1 class="conteudo-principal-escrito-titulo">Piracicaba</h1>
+            </div>
+        </section>
+
+        <section class="conteudo-secundario">
+            <h3 class="conteudo-secundario-titulo">Dados Usados</h3>
+            <img class="" src="{% static 'images/PIRACICABADATA.png' %}">
+
+            <h3 class="conteudo-secundario-titulo">Matriz de correlação</h3>
+            <img class="" src="{% static 'images/PIRACICABA.png' %}">
+            
+            <h3 class="conteudo-secundario-titulo">Conclusão</h3>
+            <p>
+            No caso de Piracicaba a variável climática com maior influência negativa nos casos de dengue foi o vento médio, indicando uma possível barreira natural à propagação do vetor.
+            A umidade média mostrou a maior associação positiva, sugerindo que ambientes mais úmidos favorecem condições para transmissão.
+            </p>
+
+            <button class="conteudo-principal-escrito-botao">
+                    <a href="{% url 'resultado_taubate' %}" class="conteudo-principal-escrito-botao-link">
+                        Próxima cidade
+                    </a>
+                </button>
+        </section>
+
+    </main>
+
+    {% include 'partials/footer.html' %}
+</body>
+
+</html>
